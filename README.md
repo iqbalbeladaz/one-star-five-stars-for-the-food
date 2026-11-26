@@ -34,11 +34,13 @@ you noodles that out-cook home.
 
 ## How the entry is chosen
 
-`main.ts` does not just print a fixed line. It scores six candidate
+`main.ts` does not just print a fixed line. It scores seven candidate
 reviews against the judge's brief — one-star verdict and Earth up
 front, alien voice, a grievance worth one star, a named dish with real
 praise, the turn landing late, one sentence, tight length, a vivid
-detail no generic review has — and writes the winner:
+detail no generic review has, and an echo of the bouty's own title
+(one star for the planet, five stars for the food) — and writes the
+winner:
 
 | Angle           | Score | Length |
 |-----------------|-------|--------|
@@ -47,6 +49,7 @@ detail no generic review has — and writes the winner:
 | Gravity         | 18    | 150    |
 | Street food     | 17    | 136    |
 | Table wait      | 17    | 148    |
+| Five stars      | 16    | 155    |
 | Noodles hug     | 16    | 141    |
 
 Ties break by fewer bytes, the same tie-break the bounty itself uses —

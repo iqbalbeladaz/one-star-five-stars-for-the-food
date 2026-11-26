@@ -62,6 +62,10 @@ const CANDIDATES: Candidate[] = [
     angle: "Table wait",
     text: "One star: Earth made me wait forty minutes for a table, then served noodles so good I forgave the planet, the queue, and the chair that ate my coat.",
   },
+  {
+    angle: "Five stars",
+    text: "One star for the planet, five stars for the noodles: Earth rains sideways, queues for everything, and still serves the best meal in this arm of the galaxy.",
+  },
 ];
 
 const ALIEN_MARKERS = [
@@ -71,6 +75,7 @@ const ALIEN_MARKERS = [
 const DISHES = ["dumplings", "noodles", "street food"];
 const PRAISE = [
   "worth the", "taste like", "so good", "cross three", "stayed",
+  "best meal",
 ];
 const GRIEVANCES = [
   "weather", "wi-fi", "traffic", "rain", "queues", "queue",
@@ -114,6 +119,10 @@ export function scoreCandidate(c: Candidate): number {
   const dish = DISHES.some((d) => lower.includes(d));
   const praise = PRAISE.some((p) => lower.includes(p));
   score += dish && praise ? 3 : dish ? 1 : 0;
+
+  // 3b. Echoes the bouty's own title: one star for the planet, five
+  //     stars for the food — the contrast the whole contest is about.
+  if (lower.includes("one star") && lower.includes("five star")) score += 2;
 
   // 3. The turn: complaint then compliment, pivoting late.
   let turn = 0;
